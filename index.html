@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Vows | Destination Weddings</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #faf9f7;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #d4af37;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #d4af37;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #c19b2e;
+            transform: translateY(-3px);
+        }
+        
+        /* Destinations Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-size: 2.5rem;
+            color: #333;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #d4af37;
+        }
+        
+        .destinations {
+            padding: 80px 0;
+        }
+        
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .destination-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .destination-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .card-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .price {
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background: #f5f3f0;
+            padding: 80px 0;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #d4af37;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Contact Form */
+        .contact {
+            background: #f5f3f0;
+            padding: 80px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            color: #d4af37;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #555;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .steps {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Eternal Vows</div>
+                <ul class="nav-links">
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Say "I Do" in Paradise</h1>
+            <p>Create unforgettable memories with our exclusive destination wedding packages at the world's most breathtaking locations.</p>
+            <a href="#destinations" class="btn">Explore Destinations</a>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations">
+        <div class="container">
+            <h2 class="section-title">Exclusive Wedding Destinations</h2>
+            <div class="destination-grid">
+                <!-- Destination 1 -->
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Santorini, Greece">
+                    </div>
+                    <div class="card-content">
+                        <h3>Santorini Cliffside</h3>
+                        <p>Exchange vows with the iconic blue-domed churches and caldera views as your backdrop in this Greek paradise.</p>
+                        <p class="price">Starting from $15,000</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Destination 2 -->
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bali, Indonesia">
+                    </div>
+                    <div class="card-content">
+                        <h3>Bali Jungle Retreat</h3>
+                        <p>A serene jungle setting with ancient temples and lush rice terraces creating a magical atmosphere for your special day.</p>
+                        <p class="price">Starting from $12,000</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Destination 3 -->
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Italian Villa">
+                    </div>
+                    <div class="card-content">
+                        <h3>Tuscan Villa Estate</h3>
+                        <p>Celebrate your love in the heart of Tuscany with rolling hills, vineyards, and historic architecture surrounding you.</p>
+                        <p class="price">Starting from $18,000</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Destination 4 -->
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Maldives">
+                    </div>
+                    <div class="card-content">
+                        <h3>Maldives Overwater Paradise</h3>
+                        <p>Say your vows on powder-white sands with crystal-clear turquoise waters as your breathtaking backdrop.</p>
+                        <p class="price">Starting from $20,000</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Destination 5 -->
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Swiss Alps">
+                    </div>
+                    <div class="card-content">
+                        <h3>Swiss Alpine Chalet</h3>
+                        <p>A fairytale wedding surrounded by majestic snow-capped mountains and pristine alpine landscapes.</p>
+                        <p class="price">Starting from $16,000</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Destination 6 -->
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1506970840772-503770eb8c51?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Morocco">
+                    </div>
+                    <div class="card-content">
+                        <h3>Marrakech Palace</h3>
+                        <p>An exotic celebration in a traditional riad with intricate architecture, lush courtyards, and Moroccan charm.</p>
+                        <p class="price">Starting from $14,000</p>
+                        <a href="#contact" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Destination</h3>
+                    <p>Browse our exclusive locations and select the perfect backdrop for your special day.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Customize Your Package</h3>
+                    <p>Tailor every detail from accommodations to ceremony specifics with our wedding planners.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Book & Prepare</h3>
+                    <p>Secure your date and let us handle all the logistics while you prepare for your journey.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Celebrate!</h3>
+                    <p>Arrive at your destination and experience the wedding of your dreams without any stress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Real Wedding Stories</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Our Santorini wedding was beyond anything we could have imagined. The team at Eternal Vows took care of every detail, allowing us to truly enjoy our special day."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Sarah & Michael">
+                        </div>
+                        <div>
+                            <h4>Sarah & Michael</h4>
+                            <p>Santorini Wedding</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The Bali jungle retreat was pure magic. We loved how they incorporated local traditions into our ceremony, making it unique and meaningful."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Jessica & David">
+                        </div>
+                        <div>
+                            <h4>Jessica & David</h4>
+                            <p>Bali Wedding</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Our Tuscan villa wedding felt like a dream. The attention to detail was impeccable, and the food and wine were absolutely exceptional."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Olivia & James">
+                        </div>
+                        <div>
+                            <h4>Olivia & James</h4>
+                            <p>Tuscany Wedding</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Start Your Journey</h2>
+            <form id="wedding-inquiry-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone">
+                </div>
+                <div class="form-group">
+                    <label for="destination">Destination of Interest</label>
+                    <select id="destination" required>
+                        <option value="">Select a destination</option>
+                        <option value="santorini">Santorini Cliffside</option>
+                        <option value="bali">Bali Jungle Retreat</option>
+                        <option value="tuscany">Tuscan Villa Estate</option>
+                        <option value="maldives">Maldives Overwater Paradise</option>
+                        <option value="swiss">Swiss Alpine Chalet</option>
+                        <option value="marrakech">Marrakech Palace</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Approximate Number of Guests</label>
+                    <input type="number" id="guests" min="2">
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date">
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell Us About Your Dream Wedding</label>
+                    <textarea id="message"></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Eternal Vows</h3>
+                    <p>Creating unforgettable destination weddings in the world's most beautiful locations since 2010.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@eternalvows.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <p>Instagram | Pinterest | Facebook</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Eternal Vows Destination Weddings. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('wedding-inquiry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const destination = document.getElementById('destination').value;
+            
+            // Show confirmation message
+            alert(`Thank you ${name}! We've received your inquiry for ${destination} and will contact you at ${email} shortly.`);
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Simple animation for destination cards on scroll
+        function checkScroll() {
+            const cards = document.querySelectorAll('.destination-card');
+            const windowHeight = window.innerHeight;
+            
+            cards.forEach(card => {
+                const position = card.getBoundingClientRect().top;
+                
+                if (position < windowHeight - 100) {
+                    card.style.opacity = 1;
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initialize card styles
+        document.querySelectorAll('.destination-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        // Check scroll on load and scroll
+        window.addEventListener('load', checkScroll);
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+</html>
